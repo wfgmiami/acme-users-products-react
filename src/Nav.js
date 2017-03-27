@@ -2,7 +2,7 @@ import React from 'react';
 import UserList from './UserList';
 import ProductList from './ProductList';
 
-const Nav = ({ users, products, onSelect, activePage }) => (
+const Nav = ({ users, products, onSelect, activePage, onDelete, onProductSave }) => (
 
   <div className="container">
     <ul className="nav nav-tabs">
@@ -12,7 +12,7 @@ const Nav = ({ users, products, onSelect, activePage }) => (
       <li className={ activePage === 'product' ? "active" : '' }><a onClick={ ()=> onSelect('product')}>Products ({`${ products.length }`})</a></li>
     </ul>
 
-    { activePage === 'user' ? <UserList users = { users }/> : <ProductList products = { products } />}
+    { activePage === 'user' ? <UserList users = { users }/> : <ProductList products = { products } onDelete = { onDelete } onProductSave = { onProductSave }/>}
 
   </div>
 )

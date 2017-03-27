@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const router = require('./routes');
 const db = require('./db');
-
+const bodyParser = require('body-parser');
 
 app.use('/vendors', express.static(__dirname + '/node_modules'));
 app.use('/public', express.static(__dirname + '/dist'));
+app.use(bodyParser.json());
 
 app.use('/api', router);
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import ProductListItem from './ProductListItem.js';
 
-//const ProductForm = ({ products, onDelete })=> (
 class ProductForm extends Component{
   constructor(props){
     super();
@@ -21,12 +20,9 @@ class ProductForm extends Component{
       <form>
         <div className="form-group">
           <label>Name</label>
-          <input className="form-control" value={ this.state.name } onChange={ this.onProductAdd } ></input><br/>
-
-          <button className="btn btn-primary" onClick={ () => this.props.onProductSave(this.state.name) }>Save</button><br/><br/>
-
-          <ProductListItem products={ this.props.products } onDelete={ this.props.onDelete }/>
+          <input className="form-control" value={ this.state.name } onChange={ this.onProductAdd } ></input>
         </div>
+          <button className="btn btn-primary" onClick={ () => this.props.onProductSave(this.state.name) }>Save</button>
       </form>
     )
   }

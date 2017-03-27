@@ -21,7 +21,7 @@ router.delete('/products/:id',(req,res,next)=>{
 
 router.post('/products', (req,res,next)=>{
   models.Product.create(req.body)
-  .then( () => res.sendStatus(200))
+  .then( () => res.end())
   .catch(next)
 })
 

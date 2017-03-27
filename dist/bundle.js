@@ -23307,7 +23307,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//const ProductForm = ({ products, onDelete })=> (
 var ProductForm = function (_Component) {
   _inherits(ProductForm, _Component);
 
@@ -23344,18 +23343,14 @@ var ProductForm = function (_Component) {
             null,
             'Name'
           ),
-          _react2.default.createElement('input', { className: 'form-control', value: this.state.name, onChange: this.onProductAdd }),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'button',
-            { className: 'btn btn-primary', onClick: function onClick() {
-                return _this2.props.onProductSave(_this2.state.name);
-              } },
-            'Save'
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(_ProductListItem2.default, { products: this.props.products, onDelete: this.props.onDelete })
+          _react2.default.createElement('input', { className: 'form-control', value: this.state.name, onChange: this.onProductAdd })
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: 'btn btn-primary', onClick: function onClick() {
+              return _this2.props.onProductSave(_this2.state.name);
+            } },
+          'Save'
         )
       );
     }
@@ -23385,6 +23380,10 @@ var _ProductForm = __webpack_require__(204);
 
 var _ProductForm2 = _interopRequireDefault(_ProductForm);
 
+var _ProductListItem = __webpack_require__(206);
+
+var _ProductListItem2 = _interopRequireDefault(_ProductListItem);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ProductList = function ProductList(_ref) {
@@ -23399,7 +23398,8 @@ var ProductList = function ProductList(_ref) {
       null,
       'Products'
     ),
-    _react2.default.createElement(_ProductForm2.default, { products: products, onDelete: onDelete, onProductSave: onProductSave })
+    _react2.default.createElement(_ProductForm2.default, { products: products, onDelete: onDelete, onProductSave: onProductSave }),
+    _react2.default.createElement(_ProductListItem2.default, { products: products, onDelete: onDelete })
   );
 };
 

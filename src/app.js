@@ -28,6 +28,7 @@ class App extends Component{
     .then( response => response.data )
     .then( products => this.setState({ products }))
     this.handleSelect('product');
+
   }
 
   handleSelect(activePage){

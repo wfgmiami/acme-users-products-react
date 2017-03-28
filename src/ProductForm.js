@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ProductListItem from './ProductListItem.js';
+//import ProductListItem from './ProductListItem.js';
 
 class ProductForm extends Component{
   constructor(props){
@@ -9,10 +9,17 @@ class ProductForm extends Component{
       name:''
     };
     this.onProductAdd = this.onProductAdd.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onProductAdd(ev){
     this.setState( { name: ev.target.value })
+  }
+
+  handleSubmit(e){
+    this.props.onProductSave(this.state.name);
+    e.preventDefault();
+    this.setState({ name })
   }
 
   render(){
@@ -22,7 +29,7 @@ class ProductForm extends Component{
           <label>Name</label>
           <input className="form-control" value={ this.state.name } onChange={ this.onProductAdd } ></input>
         </div>
-          <button className="btn btn-primary" onClick={ () => this.props.onProductSave(this.state.name) }>Save</button>
+          <button className="btn btn-primary" onClick={ this.handleSubmit }>Save</button>
       </form>
     )
   }

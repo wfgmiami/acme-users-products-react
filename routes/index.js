@@ -21,7 +21,8 @@ router.delete('/products/:id',(req,res,next)=>{
 
 router.post('/products', (req,res,next)=>{
   models.Product.create(req.body)
-  .then( () => res.end())
+  .then( () => models.Product.findAll({ order: '"name" ASC' }))
+  .then( products => res.send(products))
   .catch(next)
 })
 

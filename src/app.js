@@ -44,7 +44,9 @@ class App extends Component{
   }
 
   onProductSave(product){
-    axios.post('/api/products/',{ name: product })
+    axios.post('/api/products',{ name: product })
+    .then( response => response.data)
+    .then( products => this.setState( { products } ))
   }
 
   render(){
